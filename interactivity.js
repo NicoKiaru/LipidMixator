@@ -226,18 +226,11 @@ $(document).ready(function(){
 	mixToOpen = findGetParameter("mixName");
 
 	if (mixToOpen!=undefined) {
-		alert(mixToOpen);
-		/*$.ajax({
-			dataType: "json",
-			url: "mixes/"+mixToOpen+".json",
-			data: data,
-			success: success
-		});*/
-
+		//alert(mixToOpen);
 		$.getJSON( "mixes/"+mixToOpen+".json", function( json ) {
-			console.log( "JSON Data: " + json );
+      $("#lipidmix-table").tabulator("setData", json);
+			reComputeAll();
 		});
-
 	}
 
 });
