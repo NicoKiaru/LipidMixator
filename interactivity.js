@@ -224,7 +224,7 @@ $(document).ready(function(){
 	};
 
 	mixToOpen = findGetParameter("mixName");
-	/*
+
 	if (mixToOpen!=undefined) {
 		alert(mixToOpen);
 		/*$.ajax({
@@ -233,12 +233,12 @@ $(document).ready(function(){
 			data: data,
 			success: success
 		});*/
-		/*
+
 		$.getJSON( "mixes/"+mixToOpen+".json", function( json ) {
 			console.log( "JSON Data: " + json );
-		});*/
+		});
 
-	//}
+	}
 
 });
 
