@@ -595,7 +595,8 @@ function initLipidProperty(property,lipidKey,lookInLocalStorage,crossRefIndex = 
 }
 
 lipidDefaultPropertyValue = {};
-lipidDefaultPropertyValue.molarRatioInMix=0;
+lipidDefaultPropertyValue.molarRatioInMix=1;
+lipidDefaultPropertyValue.stockConcentration_g_l=10;
 
 var lipidHelper = {};
 
