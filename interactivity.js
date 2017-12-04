@@ -674,7 +674,7 @@ lipidHelper[eeggKey].getProperty['name'] = getNameFromLipidList;
 lipidHelper[eeggKey].getProperty['MW'] = getMWFromLipidList;
 lipidHelper[eeggKey].getExternalLink = function (lipidId) {
       // no external link with custom lipids
-      return "https://fr.wikipedia.org/wiki/+"+lipidId;
+      return "https://fr.wikipedia.org/wiki/"+lipidId;
 }
 
 // Lipid autocompletion
