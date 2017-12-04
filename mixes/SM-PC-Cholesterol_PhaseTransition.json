@@ -1,0 +1,58 @@
+[
+	{
+		"src": "AVANTI",
+		"id": "860062",
+		"name": "Brain SM ",
+		"MW": 760.223,
+		"stockConcentration_g_l": 10,
+		"molarRatioInMix": 25,
+		"massInMix": 0.11167565734154529,
+		"molInMix": 0.14689855126922666,
+		"volInMix": 11.167565734154529,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "molarRatioInMix",
+		"stockConcentration_m_l": 13.15403506602668
+	},
+	{
+		"src": "AVANTI",
+		"id": "850375",
+		"name": " DOPC ",
+		"MW": 785.593458,
+		"stockConcentration_g_l": 10,
+		"molarRatioInMix": 50,
+		"massInMix": 0.23080508173356412,
+		"molInMix": 0.2937971025384533,
+		"volInMix": 23.080508173356414,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "molarRatioInMix",
+		"stockConcentration_m_l": 12.72923023755628
+	},
+	{
+		"src": "AVANTI",
+		"id": "700000",
+		"name": "cholesterol ",
+		"MW": 386.354866,
+		"stockConcentration_g_l": 5,
+		"molarRatioInMix": 25,
+		"massInMix": 0.056754970091216196,
+		"molInMix": 0.14689855126922666,
+		"volInMix": 11.35099401824324,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "molarRatioInMix",
+		"stockConcentration_m_l": 12.941470238917606
+	},
+	{
+		"src": "AVANTI",
+		"id": "810150",
+		"name": "18:1 Liss Rhod PE ",
+		"MW": 1300.712,
+		"stockConcentration_g_l": 0.1,
+		"molarRatioInMix": 0.1,
+		"massInMix": 0.0007642908336739933,
+		"molInMix": 0.0005875942050769066,
+		"volInMix": 7.642908336739932,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "molarRatioInMix",
+		"stockConcentration_m_l": 0.07688096980730555
+	}
+]

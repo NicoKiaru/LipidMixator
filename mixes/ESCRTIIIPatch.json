@@ -1,0 +1,44 @@
+[
+	{
+		"src": "AVANTI",
+		"id": "850375",
+		"name": " DOPC ",
+		"MW": 785.593458,
+		"stockConcentration_g_l": 10,
+		"molarRatioInMix": 40,
+		"massInMix": 0.15687379294123735,
+		"molInMix": 0.19968826285877414,
+		"volInMix": 15.687379294123733,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "molarRatioInMix",
+		"stockConcentration_m_l": 12.72923023755628
+	},
+	{
+		"src": "AVANTI",
+		"id": "840035",
+		"name": " DOPS ",
+		"MW": 809.518,
+		"stockConcentration_g_l": 10,
+		"molarRatioInMix": 60,
+		"massInMix": 0.24247686475936372,
+		"molInMix": 0.29953239428816125,
+		"volInMix": 24.247686475936373,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "molarRatioInMix",
+		"stockConcentration_m_l": 12.353029827625821
+	},
+	{
+		"src": "AVANTI",
+		"id": "810150",
+		"name": "18:1 Liss Rhod PE ",
+		"MW": 1300.712,
+		"stockConcentration_g_l": 0.1,
+		"molarRatioInMix": 0.1,
+		"massInMix": 0.0006493422993989047,
+		"molInMix": 0.0004992206571469354,
+		"volInMix": 6.493422993989046,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "molarRatioInMix",
+		"stockConcentration_m_l": 0.07688096980730555
+	}
+]

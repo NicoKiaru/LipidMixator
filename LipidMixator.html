@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lipid Mixator</title>
+<script type="text/javascript" src = "libs/jquery-3.2.1.min.js" ></script>
+<script type="text/javascript" src = "libs/jquery.autocomplete.min.js" ></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			  crossorigin="anonymous"></script>
+<script type="text/javascript" src = "libs/tabulator.min.js" ></script>
+<script type="text/javascript" src="lipids/lipids_maps.js"></script>
+<script type="text/javascript" src="lipids/lipids_avanti.js"></script>
+<script type="text/javascript" src="lipids/lipids_echelon.js"></script>
+<script type="text/javascript" src="lipids/lipids_attotec.js"></script>
+<script type="text/javascript" src="lipids/lipids_custom.js"></script>
+<script type="text/javascript" src="lipids/lipids_easteregg.js"></script>
+<script type="text/javascript" src="lipids/crossRefs.js"></script>
+
+<script type="text/javascript">
+  var autocomplete_lipid_list=[];
+  autocomplete_lipid_list=autocomplete_lipid_list.concat(lipids_avanti);
+  autocomplete_lipid_list=autocomplete_lipid_list.concat(lipids_echelon);
+  autocomplete_lipid_list=autocomplete_lipid_list.concat(lipids_attotec);
+  autocomplete_lipid_list=autocomplete_lipid_list.concat(lipids_custom);
+	autocomplete_lipid_list=autocomplete_lipid_list.concat(lipids_easteregg);
+  // Much bigger : good idea to let it last for autocomplete
+  autocomplete_lipid_list=autocomplete_lipid_list.concat(lipids_maps);
+</script>
+<link rel="stylesheet" href="css/mystyle.css">
+<link rel="stylesheet" href="css/tabulator.min.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/skeleton.css">
+<script src="https://use.fontawesome.com/b0f2dd5aaf.js"></script>
+
+</head>
+
+<body class="code-snippets-visible">
+<div class="container">
+    <section class="header">
+		<h2 class="title">LIPID MIXATOR</h2>
+	</section>
+	<div class="docs-section" id="lipid_chooser">
+	  <h3 class="docs-header">add a lipid to your mix</h3>
+	  <i class="fa fa-search fa-2x"></i>
+	<input type="text" name="lipid_finder" id="autocomplete_lipids" class="autocomplete-suggestions">
+	</>
+	</div >
+
+	<div class="docs-section">
+	  <h3 class="docs-header">Specify mix properties</h3>
+
+	<div id="lipidmixglobal-table"></div>
+
+	<div id="lipidmix-table"></div>
+	</div>
+	<!----
+	<div  class="docs-section" id="action_buttons">
+		<h3 class="docs-header" >Mix Export / Import</h3>
+		<h4> Export </h4>
+		<button id="download-json"> <i class="fa fa-cloud-download fa-lg"></i> Get json file </button>
+		<button id="download-csv"> <i class="fa fa-cloud-download fa-lg"></i> Get csv file	</button>
+		<h4> Import </h4>
+		<label for="selectFiles" class="custom-file-upload">
+		<i class="fa fa-cloud-upload "></i> Upload JSON Mix File	</label>
+
+		<input type="file" class="button-primary" id="selectFiles" value="Select json file" />
+		<i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i>
+		<button id="import">Import</button>
+		<h4>Store locally</h4>
+	</div>
+	---->
+	<div  class="docs-section" id="action_buttons">
+		<div  class="raw dows-example">
+			<div  class="six columns">
+				<h5> Export </h5>
+				<button id="download-json" class = "u-third-width"> <i class="fa fa-cloud-download fa-lg"></i> JSON </button>
+				<button id="download-csv" class = "u-third-width"> <i class="fa fa-cloud-download fa-lg"></i> CSV	</button>
+				<!---- <button id="store_local" class = "u-third-width"> In browser </button> ---->
+			</div>
+			<div  class="six columns">
+				<h5> Import </h5>
+				<label for="selectFiles" class="custom-file-upload">
+				<i class="fa fa-cloud-upload "></i> Upload JSON Mix File	</label>
+				<input type="file" class="button-primary" id="selectFiles" value="Select json file" />
+				<i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i>
+				<button id="import">Import</button>
+				<br>
+				<a href="Mixes.html" target="_blank">Link to interesting mixes found in the litterature.</a>
+			</div>
+			<br><br><br> <!------(very dirty) ----->
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript" src="interactivity.js"></script>
+
+	<div class="docs-section">
+		<h3 class="docs-header"> How to use this tool ? </h3>
+		 <ul>
+		 <li> Type any name, lipid identifier (MAPS, Avanti...) in the search lipid bar. </li>
+		 <li> Navigate with arrow keys within suggestions and press enter when you have found the correct lipid. </li>
+		<li> For any lipid in the mix table, you can set your lipid stock concentration property, and specify either: </li>
+		<ul>
+		   <li> a molar weight (for a 1:2:1 ratio you can set the ratio indifferently to 1:2:1 or 25:50:25) </li>
+		   <li> a volume of stock solution </li>
+		   <li> a quantity of lipid in your mix, in µmol or mg </li>
+		   <li> a mix of that (volume of lipid A, mass of lipid B, etc.) </li>
+		</ul>
+		<li>You also have to set the global properties of your mix. You can either: </li>
+		<ul>
+		<li> set the total volume and the quantity of lipids (in mass or mol) </li>
+		<li> set the total volume and the concentration of lipids (mass or molar) </li>
+		</ul>
+		<li> Fields that you edit define the constraints that LipidMixator tries to meet. <strong> Constraints appear in bold in the table. </strong>After each user change, the table is recomputed in order to meet the mix settings and constraints. <small>A bug forces you to enter the value twice for the bold to appear, grumpf...</small></li>
+		</ul>
+
+
+		<i class="fa fa-info fa-lg" aria-hidden="true"></i> - You can enter simple calculations such as <code>1.1*0.5/2</code>, they will be evaluated. <br>
+		<i class="fa fa-info fa-lg" aria-hidden="true"></i> - Rows are sortable and movable. <br>
+		<i class="fa fa-info fa-lg" aria-hidden="true"></i> - Be aware of what you do. Some set of constraints can't be satisfied simultaneously. <br>
+
+	</div>
+	<div class="docs-section">
+		<h3 class="docs-header" > Export / Import </h3>
+		<ul>
+		<li> You can store your mix with the export buttons </li>
+		<li> You can import your mix with the file selection and import button (your previous mix will be erased and the file should be a json file). </li>
+		<li> Locally stored mixes are stored within your browser using <a href="https://www.w3schools.com/html/html5_webstorage.asp">html5 storage</a>. </li>
+		<li> If you store locally a mix with the same name, the previous mix will be erased. </li>
+	<!-----	<li> Some mixes of interest are provided in the list on the side bar. </li> ----->
+		</ul>
+
+		<i class="fa fa-info fa-lg" aria-hidden="true"></i> - Only JSON lipid mixes can be re-imported. <br>
+		<i class="fa fa-info fa-lg" aria-hidden="true"></i> - Once you have selected the JSON file to import, <strong> do not forget to click the import button.</strong> <br>
+		<i class="fa fa-info fa-lg" aria-hidden="true"></i> - There's something you cannot do in the table but you still want to do? JSON Files are text files. Just export the file, edit it, and re-import it!
+
+	</div>
+	<div  class="docs-section" id="lipid_sources">
+		 <h3 class="docs-header" >Lipid data source:</h3>
+			<ul>
+				<li>The full <a href="http://www.lipidmaps.org">Lipid Maps database </a></li>
+				<li><a href="https://avantilipids.com/">Avanti polar lipids</a> (small set) </li>
+				<li><a href="http://www.echelon-inc.com/">Echelon bioscience</a> (small set)</li>
+				<li><a href="http://www.atto-tec.com/">Atto-tec</a> (small set) </li>
+			</ul>
+
+		<p>
+			Avanti, Echelon and Atto-tec lipids have been entered manually, so <strong> many are lacking</strong>. If you would like to have more types of lipids in this tool, you have several options:
+			<ul>
+				<li> Type <code>custom</code> in the lipid search bar and modify the lipid property as you want. </li>
+				<li> Ask me to add it <a href="">on twitter</a> or by email @ nicolas {dot} chiaruttini {at} gmail {dot} com. Please provide a link to the lipid. </li>
+				<li> Fork this project on GitHub and add your lipids of interest in the correct file. </li>
+				<li> Tell lipid provider about this project so that they will want to share their data!</li>
+			</ul>
+		</p>
+	</div>
+	<div class="docs-section">
+	  <h3 class="docs-header" >Credits</h3>
+	    This tool exists thanks to many open source projects and to the accessbility of the <a href="http://www.lipidmaps.org">lipid Maps database</a>. <br>
+	  Many thanks to the developpers of these projects:
+	  <ul>
+	  <li> <a href="https://github.com/olifolkerd/tabulator"> Tabulator </a></li>
+	  <li> <a href="https://github.com/dhg/Skeleton/"> Skeleton CSS </a>	 </li>
+	  <li> <a href="https://github.com/devbridge/jQuery-Autocomplete"> Dev bridge autocomplete </a></li>
+	  <li> <a href="https://github.com/FortAwesome/Font-Awesome/">Font Awesome </a></li>
+	  </ul>
+	  <p>
+	  You like Lipid Mixator and want to Tweet it, share it, or star it? I appreciate that! <br>
+	  For any suggestions / improvements / and mitsake you notice, please send a tweet to <a href="https://twitter.com/nkiaru">@nKiaru</a>, <a href="https://github.com/NicoKiaru/LipidMixator/issues"> open a GitHub issue </a> or mail me.<br> </p>
+	  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="A tool to compute your lipid mix!" data-url="http://kiaru.eu" data-via="nKiaru" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+     <!----<a href="https://twitter.com/share" class="twitter-share-button" data-text="LipidMixator - Compute your lipid mix." data-via="nKiaru" data-related="nKiaru">Tweet</a> ---->
+      <iframe src="http://ghbtns.com/github-btn.html?user=NicoKiaru&repo=LipidMixator&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
+      <iframe src="http://ghbtns.com/github-btn.html?user=NicoKiaru&repo=LipidMixator&type=fork&count=false&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="160" height="30"></iframe>
+    </div>
+
+</div>
+
+</body>
+</html>

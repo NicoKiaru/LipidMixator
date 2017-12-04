@@ -1,0 +1,58 @@
+[
+	{
+		"src": "EEGG",
+		"id": "Gruyère_suisse",
+		"name": "Gruyère",
+		"MW": 1,
+		"stockConcentration_g_l": 1000,
+		"molarRatioInMix": 50,
+		"massInMix": 797499.9999999999,
+		"molInMix": 797499999.9999999,
+		"volInMix": 797499.9999999999,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "molarRatioInMix",
+		"stockConcentration_m_l": 1000000
+	},
+	{
+		"src": "EEGG",
+		"id": "Vacherin_fribourgeois",
+		"name": "Vacherin fribourgeois",
+		"MW": 1,
+		"stockConcentration_g_l": 1000,
+		"molarRatioInMix": 50,
+		"massInMix": 797499.9999999999,
+		"molInMix": 797499999.9999999,
+		"volInMix": 797499.9999999999,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "molarRatioInMix",
+		"stockConcentration_m_l": 1000000
+	},
+	{
+		"src": "EEGG",
+		"id": "Vin_blanc",
+		"name": "Vin blanc",
+		"MW": 1,
+		"stockConcentration_g_l": 1000,
+		"molarRatioInMix": 25.078369905956112,
+		"massInMix": 400000,
+		"molInMix": 400000000,
+		"volInMix": 400000,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "massInMix",
+		"stockConcentration_m_l": 1000000
+	},
+	{
+		"src": "EEGG",
+		"id": "Ail_cultivé",
+		"name": "Ail",
+		"MW": 1,
+		"stockConcentration_g_l": 1000,
+		"molarRatioInMix": 0.31347962382445144,
+		"massInMix": 5000,
+		"molInMix": 5000000,
+		"volInMix": 5000,
+		"stockPropertyLocked": "stockConcentration_g_l",
+		"mixPropertyLocked": "massInMix",
+		"stockConcentration_m_l": 1000000
+	}
+]
