@@ -228,6 +228,7 @@ $(document).ready(function(){
 	if (mixToOpen!=undefined) {
 		//alert(mixToOpen);
 		$.getJSON( "mixes/"+mixToOpen+".json", function( json ) {
+      setMixName(mixToOpen);
       $("#lipidmix-table").tabulator("setData", json);
 			reComputeAll();
 		});
