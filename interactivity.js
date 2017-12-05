@@ -34,17 +34,17 @@ Tabulator.extendExtension("format", "formatters", {
         if (jQuery.isNumeric(cell.getValue())) {toDisplay = Number(cell.getValue()).toPrecision(4);}
         //alert(cell.getField()+":"+lipidPropertyIsLocked(lipid,cell.getField()));
         if (lipidPropertyIsLocked(lipid,cell.getField())) {
-		  if (toDisplay<0) {
-			return "<p style='color:red'><strong>" +toDisplay+ "</strong></p>"; 
-		  } else {
-			return "<strong>" +toDisplay+ "</strong>"; //make the contents of the cell bold
-		  }
+		        if (toDisplay<0) {
+			           return "<p style='color:red'><strong>" +toDisplay+ "</strong></p>";
+		        } else {
+			           return "<strong>" +toDisplay+ "</strong>"; //make the contents of the cell bold
+		        }
         } else {
-		  if (toDisplay<0) {
-			return "<p style='color:red'>"+toDisplay+"</p>"; //make the contents of the cell bold
-		  } else {
-			return toDisplay;
-		  }
+		        if (toDisplay<0) {
+			           return "<p style='color:red'>"+toDisplay+"</p>"; //make the contents of the cell bold
+		        } else {
+			           return toDisplay;
+		        }
         }
     },
     boldLockGlobalParam:function(cell, formatterParams){
@@ -54,18 +54,18 @@ Tabulator.extendExtension("format", "formatters", {
         if (jQuery.isNumeric(toDisplay)) {toDisplay = Number(toDisplay).toPrecision(4);}
         if (globalPropertyIsLocked(globalParams,cell.getField())|| cell.getField()=='vol') {
           //return "<strong>" + toDisplay + "</strong>"; //make the contents of the cell bold
-		  if (toDisplay<0) {
-			return "<p style='color:red'><strong>" +toDisplay+ "</strong></p>"; 
-		  } else {
-			return "<strong>" +toDisplay+ "</strong>"; //make the contents of the cell bold
-		  }
+		        if (toDisplay<0) {
+			           return "<p style='color:red'><strong>" +toDisplay+ "</strong></p>";
+		        } else {
+			           return "<strong>" +toDisplay+ "</strong>"; //make the contents of the cell bold
+		        }
         } else {
           //return toDisplay; //make the contents of the cell bold
-		  if (toDisplay<0) {
-			return "<p style='color:red'>"+toDisplay+"</p>"; //make the contents of the cell bold
-		  } else {
-			return toDisplay;
-		  }
+		        if (toDisplay<0) {
+			           return "<p style='color:red'>"+toDisplay+"</p>"; //make the contents of the cell bold
+		        } else {
+			           return toDisplay;
+		        }
         }
     },
     precision4: function(cell, formatterParams){
@@ -214,7 +214,7 @@ function setMixVol(newVol) {
 	$("#lipidmixglobal-table").tabulator("updateData", [globalData]);
 }
 
-function setMixName(newCmass) {
+function setMixCMass(newCmass) {
 	var globalData = $("#lipidmixglobal-table").tabulator("getData")[0];
 	globalData.cmass=newCmass;
 	$("#lipidmixglobal-table").tabulator("updateData", [globalData]);
@@ -267,7 +267,7 @@ $(document).ready(function(){
 			}
 			if (mixCmass!=undefined) {
 				setMixCMass(mixCmass);
-			}			
+			}
 			reComputeAll();
 		});
 	}
