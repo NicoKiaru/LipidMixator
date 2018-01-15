@@ -24,6 +24,7 @@ var lipids_avanti=[
 {value:"cholesterol sulfate | 700016 | cholesterol 3-sulfate (sodium salt)", data:{source:"AVANTI", id:"700016", mw:488.294}},
 {value:"18:1 NBD-PEG4 Lyso PE | 810159 | 1-oleoyl-2-hydroxy-sn-glycero-3-phosphoethanolamine-N-[tetra(ethylene glycol)]-N'-(7-nitro-2-1,3-benzoxadiazol-4-yl) (ammonium salt)", data:{source:"AVANTI", id:"810159", mw:906.472}},
 {value:"Soy PI | 840044 | L-α-phosphatidylinositol (Soy) (sodium salt)", data:{source:"AVANTI", id:"840044", mw:866.647}},
+{value:"Soy Lyso PI | 850090 L-α-lysophosphatidylinositol (Soy) (sodium salt)", data:{source:"AVANTI", id:"850090", mw:601.634}},
 
 
 ];
